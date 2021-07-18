@@ -15,9 +15,7 @@ loop:
 	jz end
 	mov ah, 00h
 	int 16h
-	mov txt, al
-	mov ah, 09h
-	int 10h
+
 	jmp loop
 end:
 	hlt
