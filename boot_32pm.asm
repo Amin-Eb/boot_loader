@@ -1,11 +1,20 @@
 [ org 0x7c00 ]
-
+	mov ah, 0x06    ; Clear / scroll screen up function
+	xor al, al      
+	xor cx, cx      ; Row,column of window's upper left corner
+	mov dx, 0x184f  ; Row,column of window's lower right corner
+	mov bh, 34h        ; I
 	mov bp , 0x9000 
 	mov sp , bp
 	
 	mov bx , MSG_REAL_MODE
 	call print_string
-	
+	mov ah, 0x06    ; Clear / scroll screen up function
+	xor al, al      
+	xor cx, cx      ; Row,column of window's upper left corner
+	mov dx, 0x184f  ; Row,column of window's lower right corner
+	mov bh, 34h
+	int 0x10      
 	call switch_to_pm 
 	
 	jmp $
