@@ -1,3 +1,5 @@
+;[bits 16]
+
 print_string:
 	pusha
 print_string_rm_loop:
