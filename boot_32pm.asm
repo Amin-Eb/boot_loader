@@ -33,7 +33,7 @@ BEGIN_PM :
 
 
 MSG_REAL_MODE db " Started in 16 - bit Real Mode " , 0
-MSG_PROT_MODE db " Successfully landed in 32 - bit Protected Mode " , 0
+MSG_PROT_MODE db "             MOS ->Successfully landed in 32 - bit Protected Mode <-" , 0
 
 
 times 510 -( $ - $$ ) db 0
