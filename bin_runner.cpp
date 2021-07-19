@@ -1,4 +1,6 @@
 #include<windows.h>
+//-----------------CopyRight© Mos 2021------------------------\\
+\\-------------------- AEbi & Mosa----------------------------//
 #include<iostream>
 #include<string.h>
 using namespace std;
@@ -11,9 +13,10 @@ int main()
 		cin>>ch;
 		if(strcmp(ch,"s")==0)
 		{
-			system("nasm boot.asm -o boot_runner.bin");
-			system("qemu-system-i386 boot_runner.bin");
-			_sleep(1000);
+			system("nasm boot_32pm.asm -o boot_32pm.bin");
+			_sleep(500);
+			system("qemu-system-i386 boot_32pm.bin");
+			_sleep(500);
 		}
 		else
 		{
