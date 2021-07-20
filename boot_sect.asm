@@ -11,7 +11,7 @@ KERNEL_OFFSET equ 0x1000
 
 	jmp $
 
-%include "src/basics/print_string.asm"
+%include "src/basics/print_string_rm.asm"
 %include "src/disk/disk_load.asm"
 %include "src/basics/gdt.asm"
 %include "src/basics/print_string_pm.asm"
@@ -31,14 +31,14 @@ load_kernel:
 [bits 32]
 
 BEGIN_PM:
-	mov ebx, MSG_PORT_MODE
-	call print_string_pm
+	;mov ebx, MSG_PROT_MODE
+	;call print_string_pm
 	call KERNEL_OFFSET
 
 	jmp $
 BOOT_DRIVE db 0
 MSG_REAL_MODE db "started in 16-bit real mode", 0
-MSG_PROT_MODE db "                        ___      ___                                                                   |:::\    /:::|                                                                  |::|\\__//|::|   os 32-bit                                                      |::| \::/ |::|", 0
+;MSG_PROT_MODE db "                        ___      ___                                                                   |:::\    /:::|                                                                  |::|\\__//|::|   os 32-bit                                                      |::| \::/ |::|", 0
 MSG_LOAD_KERNEL db "loading kernel >> MOS 32-bit", 0
 
 times 510-($-$$) db 0
