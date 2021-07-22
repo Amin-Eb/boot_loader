@@ -2,6 +2,7 @@
 
 
 int ofset=0;
+int attr=0x07;
 
 int write_msg(std::string x)
 {
@@ -9,7 +10,9 @@ int write_msg(std::string x)
 		{
 			char* writeon=ofset+videomem_address;
 			*writeon = x[i];
-			ofset++;
+			writeon++;
+			*writeon = attr;
+			ofset+=2;
 		}
 	return 0;
 }
