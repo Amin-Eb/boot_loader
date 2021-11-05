@@ -2,17 +2,15 @@
 
 
 int ofset=0;
-int attr=0x07;
+char attr=(char)0x07;
 
-int write_msg(std::string x)
+int write_msg(char* x, int length)
 {
-	for(int i=0; i<x.size();i++)
-		{
-			char* writeon=ofset+videomem_address;
-			*writeon = x[i];
-			writeon++;
-			*writeon = attr;
-			ofset+=2;
-		}
+	short data;
+	for(int i=0; i<length; i++){
+		*(char*)&data = x[i];
+		*((char*)&data+1) = attr;
+		videomem_address[(ofset < videomem_size/2 ? ofset : ofset=0)] = data;
+	}
 	return 0;
 }
