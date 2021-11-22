@@ -21,7 +21,7 @@
 BEGIN_PM :
 	mov ebx , MSG_PROT_MODE
 	call print_string_pm
-	jmp $
+	HLT
 MSG_REAL_MODE db " Started in 16 - bit Real Mode " , 0
 MSG_PROT_MODE db "                        ___      ___                                                                   |:::\    /:::|                                                                  |::|\\__//|::|   os 32-bit                                                      |::| \::/ |::|", 0
     
